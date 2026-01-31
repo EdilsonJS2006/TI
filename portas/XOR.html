@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags Otimizadas para Porta XOR -->
+    <title>Porta XOR - Guia Completo com Tabelas Verdade e Exercícios</title>
+    <meta name="description" content="Guia completo sobre a porta XOR - a porta lógica OU Exclusivo. Aprenda tabelas verdade, propriedades booleanas, exercícios interativos e aplicações práticas em Moçambique.">
+    <meta name="keywords" content="porta XOR, OU exclusivo, eletrônica digital, computação, tabela verdade XOR, lógica digital, álgebra booleana, Moçambique, educação tecnológica, portas lógicas XOR">
+    <meta name="author" content="Edilson Silombe">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Meta Tags Região Moçambique -->
+    <meta name="geo.region" content="MZ">
+    <meta name="geo.placename" content="Moçambique">
+    <meta name="language" content="portuguese">
+    <meta name="country" content="Mozambique">
+    <meta name="distribution" content="global">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://edilsonjs.xyz/XOR.html">
+    <meta property="og:title" content="Porta XOR - A Porta OU Exclusivo da Computação">
+    <meta property="og:description" content="Guia completo sobre a porta XOR com tabelas verdade, exercícios interativos e aplicações práticas para estudantes em Moçambique.">
+    <meta property="og:image" content="https://edilsonjs.xyz/images/porta-xor-og.jpg">
+    <meta property="og:locale" content="pt_MZ">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://edilsonjs.xyz/XOR.html">
+    <meta name="twitter:title" content="Porta XOR - Guia Completo">
+    <meta name="twitter:description" content="Aprenda sobre a porta XOR, a porta OU Exclusivo. Tabelas verdade, exercícios e aplicações práticas.">
+    <meta name="twitter:image" content="https://edilsonjs.xyz/images/porta-xor-twitter.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://edilsonjs.xyz/XOR.html">
+    
+    <!-- Favicon em Base64 -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAADBSURBVHja7NexCsJAEATgby8iItjYKz6Br2JhZWUjvoKQwiKQzk5QCOQRLHyLYxO4wN0lguB8MOzC7jLM7bJ37KqKIa1iYBsA7AH4B8Wx9wDUU8Dn7QNwV8ApE0BIBJBKAc6EACsJwE4CsBMCzMSCPv8JYDqLqvt/yQD+y28uCwDOqp59K1gD0Fc7V/sEJACeOwd4AFqjDzSAtgDmAB4ZcV3vbhG36BuO0ST17lp1f3UJwCW6/6H5/hb6D/Bz/QYAWmCPGtGLFqIAAAAASUVORK5CYII=">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a192f">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variáveis de cor - Usando roxo para porta XOR */
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #112240;
+            --accent-color: #9C27B0; /* Roxo para porta XOR */
+            --text-color: #ccd6f6;
+            --text-secondary: #8892b0;
+            --card-color: #1a365d;
+            --border-color: #233554;
+            --correct-color: #10b981;
+            --wrong-color: #ef4444;
+        }
+
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 70px; /* Espaço para navbar fixa */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo i {
+            margin-right: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0 15px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+            background-color: rgba(156, 39, 176, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            background: none;
+            border: none;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-color);
+            padding: 40px 0 30px;
+            text-align: center;
+            margin-top: 70px;
+            border-bottom: 3px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(156, 39, 176, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Introduction Section */
+        .intro, .content-section, .exercises-section {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-size: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .subsection-title {
+            color: var(--text-color);
+            margin: 30px 0 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .highlight-box {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .definition {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--card-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table th {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .exercise-card {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .exercise-title {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .exercise-title i {
+            margin-right: 10px;
+        }
+
+        .exercise-prompt {
+            margin-bottom: 20px;
+        }
+
+        .input-area, .output-area {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px dashed var(--border-color);
+        }
+
+        .solution-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .solution-btn:hover {
+            background-color: #7B1FA2;
+        }
+
+        .solution {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Exercise Radio Styles */
+        .exercise-question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(26, 54, 93, 0.3);
+            border-radius: 8px;
+        }
+
+        .option-group {
+            margin: 15px 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .check-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .check-btn:hover {
+            background-color: #7B1FA2;
+            transform: translateY(-2px);
+        }
+
+        .check-btn:disabled {
+            background-color: var(--text-secondary);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Result Modal */
+        .result-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .result-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .result-content {
+            background-color: var(--card-color);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .result-modal.active .result-content {
+            transform: scale(1);
+        }
+
+        .result-header {
+            padding: 25px;
+            text-align: center;
+            color: white;
+        }
+
+        .result-header.correct {
+            background-color: var(--correct-color);
+        }
+
+        .result-header.wrong {
+            background-color: var(--wrong-color);
+        }
+
+        .result-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .result-message {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .result-explanation {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .close-result {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Circuit Diagram Styles */
+        .circuit-diagram {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .circuit-symbol {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin: 15px 0;
+        }
+
+        .circuit-explanation {
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .logic-symbol {
+            text-align: center;
+            font-size: 5rem;
+            color: var(--accent-color);
+            margin: 20px 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-contact {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .whatsapp-contact {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-contact:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-contact i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                border-top: 1px solid var(--border-color);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+            }
+
+            .nav-link {
+                height: auto;
+                padding: 15px;
+                justify-content: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .intro, .content-section, .exercises-section {
+                padding: 25px;
+            }
+            
+            .logic-symbol {
+                font-size: 4rem;
+                height: 60px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .exercise-card {
+                padding: 20px;
+            }
+            
+            .nav-logo {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Result Modal -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <div class="result-header" id="resultHeader">
+                <div class="result-icon" id="resultIcon"></div>
+                <h2 id="resultTitle">Resultado</h2>
+            </div>
+            <div class="result-body">
+                <p class="result-message" id="resultMessage"></p>
+                <p class="result-explanation" id="resultExplanation"></p>
+                <button class="close-result" onclick="closeResult()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <i class="fas fa-microchip"></i> Portas Lógicas
+            </a>
+            
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../politica.html" class="nav-link">
+                        <i class="fas fa-file-contract"></i> Política
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../termos.html" class="nav-link">
+                        <i class="fas fa-balance-scale"></i> Termos de Uso
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../contacto.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Contacto
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../sobre.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i> Sobre
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../apoio.html" class="nav-link active">
+                        <i class="fas fa-heart"></i> Apoie
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header id="home">
+        <div class="container">
+            <h1 class="title">Porta XOR - A Porta OU Exclusivo</h1>
+            <p class="subtitle">Entenda a porta lógica que detecta diferenças entre entradas e é fundamental para operações aritméticas</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Seção de Introdução -->
+        <section class="intro">
+            <h2 class="section-title">O Que é uma Porta XOR?</h2>
+            <p>A porta XOR (OU Exclusivo) é uma das <strong>portas lógicas mais importantes</strong> na eletrônica digital e na computação. Ela implementa a operação de <strong>disjunção exclusiva</strong> na álgebra booleana. A porta XOR produz uma saída alta (1) apenas quando as entradas são <strong>diferentes</strong> entre si[citation:1].</p>
+            
+            <div class="highlight-box">
+                <p class="definition">DEFINIÇÃO: A porta XOR produz uma saída com valor lógico 1 (ALTO/VERDADEIRO) somente quando as suas entradas são DIFERENTES. Se as entradas forem iguais (ambas 0 ou ambas 1), a saída será 0[citation:1].</p>
+            </div>
+            
+            <p>Na álgebra booleana, a operação XOR é representada pelo símbolo ⊕. A expressão booleana para uma porta XOR de duas entradas é escrita como <span class="formula">Q = A ⊕ B</span> ou <span class="formula">Q = A XOR B</span>[citation:2]. Diferente da porta OR que produz 1 quando uma ou ambas as entradas são 1, a XOR só produz 1 quando exatamente uma entrada é 1.</p>
+            
+            <div class="logic-symbol">
+                <span>XOR</span>
+            </div>
+            
+            <p>A importância da porta XOR é imensa na computação. Ela é fundamental para operações como <strong>adição binária</strong> (meio-somador e somador completo), <strong>detecção de paridade</strong>, <strong>criptografia</strong> e <strong>códigos de correção de erros</strong>. A porta XOR também é usada em circuitos de comparação para verificar se dois valores são diferentes[citation:1].</p>
+        </section>
+
+        <!-- Seção: Funcionamento com 2 Entradas -->
+        <section class="content-section" id="duas-entradas">
+            <h2 class="section-title">Funcionamento com 2 Entradas</h2>
+            
+            <h3 class="subsection-title">Tabela Verdade da Porta XOR de 2 Entradas</h3>
+            <table>
+                <tr>
+                    <th>Entrada A</th>
+                    <th>Entrada B</th>
+                    <th>Saída Q (A XOR B)</th>
+                </tr>
+                <tr><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td></tr>
+            </table>
+            
+            <p><em>Observação: A saída é 1 apenas quando as entradas são diferentes. Quando as entradas são iguais, a saída é 0.</em></p>
+            
+            <h3 class="subsection-title">Analogia Prática</h3>
+            <p>Imagine um sistema de votação onde duas pessoas devem decidir algo. O resultado é aprovado (saída = 1) apenas quando os votos são diferentes (uma pessoa concorda e a outra discorda). Se ambas concordam (1,1) ou ambas discordam (0,0), o resultado é não aprovado (saída = 0).</p>
+            
+            <h3 class="subsection-title">Exercício Prático 1</h3>
+            <div class="exercise-question">
+                <p><strong>Qual é a saída Q de uma porta XOR quando A=1 e B=1?</strong></p>
+                <div class="option-group">
+                    <div class="radio-option">
+                        <input type="radio" id="ex1-option1" name="exercise1" value="0">
+                        <label for="ex1-option1">0</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="ex1-option2" name="exercise1" value="1">
+                        <label for="ex1-option2">1</label>
+                    </div>
+                </div>
+                <button class="check-btn" onclick="checkAnswer(1, '0')" disabled id="btnExercise1">Verificar Resposta</button>
+            </div>
+        </section>
+
+        <!-- Seção: Funcionamento com 3 Entradas -->
+        <section class="content-section" id="tres-entradas">
+            <h2 class="section-title">Funcionamento com 3 Entradas</h2>
+            
+            <h3 class="subsection-title">Tabela Verdade da Porta XOR de 3 Entradas</h3>
+            <table>
+                <tr>
+                    <th>Entrada A</th>
+                    <th>Entrada B</th>
+                    <th>Entrada C</th>
+                    <th>Saída Q (A XOR B XOR C)</th>
+                </tr>
+                <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            </table>
+            
+            <p><em>Observação: Para 3 entradas, a porta XOR produz saída 1 quando há um número ÍMPAR de entradas em 1. Se houver um número PAR de entradas em 1, a saída é 0.</em></p>
+            
+            <h3 class="subsection-title">Exercício Prático 2</h3>
+            <div class="exercise-question">
+                <p><strong>Qual é a saída Q de uma porta XOR de 3 entradas quando A=0, B=1 e C=1?</strong></p>
+                <div class="option-group">
+                    <div class="radio-option">
+                        <input type="radio" id="ex2-option1" name="exercise2" value="0">
+                        <label for="ex2-option1">0</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="ex2-option2" name="exercise2" value="1">
+                        <label for="ex2-option2">1</label>
+                    </div>
+                </div>
+                <button class="check-btn" onclick="checkAnswer(2, '0')" disabled id="btnExercise2">Verificar Resposta</button>
+            </div>
+        </section>
+
+        <!-- Seção de Propriedades Booleanas -->
+        <section class="content-section" id="propriedades">
+            <h2 class="section-title">Propriedades Booleanas da Porta XOR</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Comutatividade:</strong> <span class="formula">A ⊕ B = B ⊕ A</span></p>
+                <p><strong>Associatividade:</strong> <span class="formula">(A ⊕ B) ⊕ C = A ⊕ (B ⊕ C)</span></p>
+                <p><strong>Distributividade:</strong> <span class="formula">A · (B ⊕ C) = (A · B) ⊕ (A · C)</span></p>
+                <p><strong>Elemento Neutro:</strong> <span class="formula">A ⊕ 0 = A</span></p>
+                <p><strong>Complemento:</strong> <span class="formula">A ⊕ 1 = A'</span> (NOT A)</p>
+                <p><strong>Auto-inversão:</strong> <span class="formula">A ⊕ A = 0</span></p>
+                <p><strong>Cancelamento:</strong> <span class="formula">A ⊕ A' = 1</span></p>
+                <p><strong>Propriedade Única:</strong> <span class="formula">A ⊕ B ⊕ B = A</span> (B cancela B)</p>
+            </div>
+            
+            <p>Estas propriedades fazem da porta XOR uma ferramenta poderosa em criptografia, pois a mesma operação que codifica (A ⊕ chave) também decodifica ((A ⊕ chave) ⊕ chave = A).</p>
+            
+            <h3 class="subsection-title">Exercício Prático 3</h3>
+            <div class="exercise-question">
+                <p><strong>Qual é o resultado de A XOR A, segundo as propriedades da porta XOR?</strong></p>
+                <div class="option-group">
+                    <div class="radio-option">
+                        <input type="radio" id="ex3-option1" name="exercise3" value="A">
+                        <label for="ex3-option1">A</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="ex3-option2" name="exercise3" value="0">
+                        <label for="ex3-option2">0</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="ex3-option3" name="exercise3" value="1">
+                        <label for="ex3-option3">1</label>
+                    </div>
+                </div>
+                <button class="check-btn" onclick="checkAnswer(3, '0')" disabled id="btnExercise3">Verificar Resposta</button>
+            </div>
+        </section>
+
+        <!-- Seção de Exercícios -->
+        <section class="exercises-section" id="exercicios">
+            <h2 class="section-title">Exercícios de Circuitos XOR</h2>
+            
+            <!-- Exercício 4 -->
+            <div class="exercise-card">
+                <h3 class="exercise-title"><i class="fas fa-pen-to-square"></i> Exercício 4: Circuito com 2 Entradas</h3>
+                <div class="exercise-question">
+                    <p><strong>Qual é a saída de uma porta XOR quando ambas as entradas são 0?</strong></p>
+                    <div class="option-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ex4-option1" name="exercise4" value="0">
+                            <label for="ex4-option1">0</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex4-option2" name="exercise4" value="1">
+                            <label for="ex4-option2">1</label>
+                        </div>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer(4, '0')" disabled id="btnExercise4">Verificar Resposta</button>
+                </div>
+            </div>
+            
+            <!-- Exercício 5 -->
+            <div class="exercise-card">
+                <h3 class="exercise-title"><i class="fas fa-diagram-project"></i> Exercício 5: Análise de Tabela Verdade</h3>
+                <div class="exercise-question">
+                    <p><strong>Em uma porta XOR com 3 entradas, quantas combinações de entrada produzem saída 1?</strong></p>
+                    <div class="option-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ex5-option1" name="exercise5" value="2">
+                            <label for="ex5-option1">2 combinações</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex5-option2" name="exercise5" value="4">
+                            <label for="ex5-option2">4 combinações</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex5-option3" name="exercise5" value="6">
+                            <label for="ex5-option3">6 combinações</label>
+                        </div>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer(5, '4')" disabled id="btnExercise5">Verificar Resposta</button>
+                </div>
+            </div>
+            
+            <!-- Exercício 6 -->
+            <div class="exercise-card">
+                <h3 class="exercise-title"><i class="fas fa-lightbulb"></i> Exercício 6: Aplicação Prática</h3>
+                <div class="exercise-question">
+                    <p><strong>Qual é a aplicação mais comum da porta XOR em circuitos aritméticos?</strong></p>
+                    <div class="option-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ex6-option1" name="exercise6" value="multiplicacao">
+                            <label for="ex6-option1">Multiplicação binária</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex6-option2" name="exercise6" value="soma">
+                            <label for="ex6-option2">Soma binária (meio-somador)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex6-option3" name="exercise6" value="divisao">
+                            <label for="ex6-option3">Divisão binária</label>
+                        </div>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer(6, 'soma')" disabled id="btnExercise6">Verificar Resposta</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Aplicações Práticas -->
+        <section class="content-section" id="aplicacoes">
+            <h2 class="section-title">Aplicações Práticas da Porta XOR</h2>
+            
+            <div class="highlight-box">
+                <h3 class="subsection-title"><i class="fas fa-calculator"></i> Em Circuitos Aritméticos</h3>
+                <p><strong>Meio-Somador:</strong> A porta XOR é o componente principal do meio-somador, que realiza a soma de dois bits. A saída S (soma) é exatamente A XOR B, e o carry (vai-um) é A AND B.</p>
+                
+                <p><strong>Somador Completo:</strong> Em somadores completos para múltiplos bits, a porta XOR é usada para calcular a soma considerando o carry de entrada.</p>
+                
+                <p><strong>Comparadores:</strong> Circuitos que detectam se dois números binários são diferentes utilizam portas XOR para comparar bit a bit.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3 class="subsection-title"><i class="fas fa-lock"></i> Em Criptografia e Segurança</h3>
+                <p><strong>Cifra de Vernam:</strong> A porta XOR é usada no único sistema de criptografia comprovadamente inquebrável, onde a mensagem é combinada com uma chave aleatória do mesmo tamanho através da operação XOR.</p>
+                
+                <p><strong>Detecção de Paridade:</strong> Geradores e verificadores de bits de paridade usam portas XOR para detectar erros em transmissões de dados.</p>
+                
+                <p><strong>Scrambling de Dados:</strong> Em comunicações digitais, a porta XOR é usada para embaralhar dados antes da transmissão.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3 class="subsection-title"><i class="fas fa-gamepad"></i> Em Jogos e Lógica</h3>
+                <p><strong>Jogo do Nim:</strong> A estratégia vencedora do clássico jogo do Nim é baseada na operação XOR, calculando o "nim-sum" das pilhas.</p>
+                
+                <p><strong>Alternância de Estados:</strong> Circuitos que alternam entre dois estados (como interruptores de alternância) podem ser implementados com portas XOR.</p>
+            </div>
+        </section>
+
+        <!-- Seção de Implementação com Outras Portas -->
+        <section class="content-section" id="implementacao">
+            <h2 class="section-title">Implementação da Porta XOR com Outras Portas</h2>
+            
+            <p>A porta XOR pode ser implementada usando outras portas lógicas básicas. Duas implementações comuns são:</p>
+            
+            <div class="highlight-box">
+                <h3 class="subsection-title">1. Usando Portas AND, OR e NOT</h3>
+                <p><span class="formula">A XOR B = (A AND NOT B) OR (NOT A AND B)</span></p>
+                <p>Esta implementação requer: 2 portas NOT, 2 portas AND, e 1 porta OR.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3 class="subsection-title">2. Usando Portas NAND (Apenas NANDs)</h3>
+                <p><span class="formula">A XOR B = (A NAND (A NAND B)) NAND ((A NAND B) NAND B)</span></p>
+                <p>Esta implementação usa apenas 4 portas NAND, demonstrando que a NAND é uma porta universal.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3 class="subsection-title">3. Usando Portas NOR (Apenas NORs)</h3>
+                <p>A porta XOR também pode ser implementada usando apenas portas NOR, embora seja menos eficiente que a implementação com NANDs.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../politica.html"><i class="fas fa-file-contract"></i> Política de Privacidade</a></li>
+                        <li><a href="../termos.html"><i class="fas fa-balance-scale"></i> Termos de Uso</a></li>
+                        <li><a href="../contacto.html"><i class="fas fa-address-book"></i> Contacto</a></li>
+                        <li><a href="../sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                        <li><a href="../apoio.html"><i class="fas fa-heart"></i> Apoie</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Portas Lógicas</h3>
+                    <ul class="footer-links">
+                        <li><a href="AND.html"><i class="fas fa-project-diagram"></i> Porta AND</a></li>
+                        <li><a href="OR.html"><i class="fas fa-project-diagram"></i> Porta OR</a></li>
+                        <li><a href="XOR.html"><i class="fas fa-project-diagram"></i> Porta XOR</a></li>
+                        <li><a href="NAND.html"><i class="fas fa-project-diagram"></i> Porta NAND</a></li>
+                        <li><a href="NOR.html"><i class="fas fa-project-diagram"></i> Porta NOR</a></li>
+                        <li><a href="XNOR.html"><i class="fas fa-project-diagram"></i> Porta XNOR</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p>Tem dúvidas sobre portas lógicas?</p>
+                        <p>Entre em contacto para discutir projetos ou tirar dúvidas!</p>
+                        <a href="https://wa.me/258848672956" class="whatsapp-contact" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp: +258 84 867 2956
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Portas Lógicas - Todos os direitos reservados</p>
+                <p>Site desenvolvido por Edilson Silombe - Estudante de Informática, Moçambique</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função para verificar resposta
+        function checkAnswer(exerciseNumber, correctAnswer) {
+            const exerciseName = `exercise${exerciseNumber}`;
+            const selectedOption = document.querySelector(`input[name="${exerciseName}"]:checked`);
+            const button = document.getElementById(`btnExercise${exerciseNumber}`);
+            
+            if (!selectedOption) {
+                return;
+            }
+            
+            const userAnswer = selectedOption.value;
+            const isCorrect = userAnswer === correctAnswer;
+            
+            // Mostrar resultado
+            showResult(isCorrect, exerciseNumber, userAnswer, correctAnswer);
+            
+            // Desabilitar o botão após responder
+            button.disabled = true;
+            
+            // Desabilitar todas as opções de rádio deste exercício
+            const radioInputs = document.querySelectorAll(`input[name="${exerciseName}"]`);
+            radioInputs.forEach(input => {
+                input.disabled = true;
+            });
+        }
+        
+        // Função para mostrar resultado
+        function showResult(isCorrect, exerciseNumber, userAnswer, correctAnswer) {
+            const modal = document.getElementById('resultModal');
+            const resultHeader = document.getElementById('resultHeader');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultMessage = document.getElementById('resultMessage');
+            const resultExplanation = document.getElementById('resultExplanation');
+            
+            // Configurar baseado no resultado
+            if (isCorrect) {
+                resultHeader.className = 'result-header correct';
+                resultIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                resultTitle.textContent = 'Resposta Correta!';
+                resultMessage.textContent = 'Parabéns! Você acertou a questão.';
+                resultMessage.style.color = 'white';
+            } else {
+                resultHeader.className = 'result-header wrong';
+                resultIcon.innerHTML = '<i class="fas fa-times-circle"></i>';
+                resultTitle.textContent = 'Resposta Incorreta';
+                resultMessage.textContent = `Sua resposta: ${userAnswer}`;
+                resultMessage.style.color = 'white';
+            }
+            
+            // Adicionar explicação baseada no exercício
+            const explanations = {
+                1: "Quando A=1 e B=1, a saída da porta XOR é 0. A porta XOR só produz 1 quando as entradas são diferentes.",
+                2: "Com A=0, B=1 e C=1, a saída é 0. Para 3 entradas, a XOR produz 1 quando há um número ímpar de entradas em 1. Aqui temos duas entradas em 1 (número par), então saída é 0.",
+                3: "Segundo a propriedade de auto-inversão, A XOR A = 0. Esta propriedade é fundamental para muitas aplicações da porta XOR.",
+                4: "Quando ambas as entradas são 0, a porta XOR produz saída 0. Quando as entradas são iguais (0,0 ou 1,1), a saída é sempre 0.",
+                5: "Para 3 entradas XOR, há 4 combinações que produzem saída 1: (0,0,1), (0,1,0), (1,0,0), (1,1,1). São as combinações com número ímpar de 1s.",
+                6: "A aplicação mais comum da porta XOR em circuitos aritméticos é na implementação do meio-somador, onde A XOR B calcula a soma dos bits A e B."
+            };
+            
+            resultExplanation.textContent = explanations[exerciseNumber];
+            
+            // Mostrar modal
+            modal.classList.add('active');
+        }
+        
+        // Função para fechar resultado
+        function closeResult() {
+            const modal = document.getElementById('resultModal');
+            modal.classList.remove('active');
+        }
+        
+        // Habilitar botões quando uma opção for selecionada
+        document.addEventListener('DOMContentLoaded', function() {
+            // Para cada exercício, adicionar listener aos inputs
+            for (let i = 1; i <= 6; i++) {
+                const radioInputs = document.querySelectorAll(`input[name="exercise${i}"]`);
+                const button = document.getElementById(`btnExercise${i}`);
+                
+                radioInputs.forEach(input => {
+                    input.addEventListener('change', function() {
+                        button.disabled = false;
+                    });
+                });
+            }
+        });
+        
+        // Navbar functionality
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+        
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            navMenu.classList.remove("active");
+        }));
+        
+        // Set active nav link based on current page
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split("/").pop();
+            const navLinks = document.querySelectorAll(".nav-link");
+            
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                
+                // Get the href attribute and extract the filename
+                const linkHref = link.getAttribute("href");
+                if (linkHref === currentPage || 
+                    (currentPage === "" && linkHref === "index.html") ||
+                    (currentPage === "index.html" && linkHref === "index.html")) {
+                    link.classList.add("active");
+                }
+            });
+        }
+        
+        // Set active nav link on page load
+        document.addEventListener("DOMContentLoaded", setActiveNavLink);
+    </script>
+</body>
+</html>

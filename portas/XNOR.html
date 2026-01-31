@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags Básicas -->
+    <title>Porta XNOR - Guia Completo</title>
+    <meta name="description" content="Guia completo sobre a porta XNOR - fundamentos da computação, tabelas verdade, simulador interativo e explicações detalhadas.">
+    <meta name="keywords" content="porta XNOR, NÃO OU Exclusivo, eletrônica digital, computação, tabela verdade, álgebra booleana, comparador de igualdade">
+    <meta name="author" content="Edilson Silombe">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://edilsonjs.xyz/portas/XNOR.html">
+    <meta property="og:title" content="Porta XNOR - O Comparador de Igualdade">
+    <meta property="og:description" content="Guia completo sobre a porta XNOR - entenda a porta que detecta quando as entradas são iguais.">
+    <meta property="og:image" content="https://edilsonjs.xyz/images/og-xnor.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://edilsonjs.xyz/portas/XNOR.html">
+    <meta name="twitter:title" content="Porta XNOR - O Comparador de Igualdade">
+    <meta name="twitter:description" content="Guia completo sobre a porta XNOR - entenda a porta que detecta quando as entradas são iguais.">
+    <meta name="twitter:image" content="https://edilsonjs.xyz/images/twitter-xnor.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://edilsonjs.xyz/portas/XNOR.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⊚</text></svg>">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a192f">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variáveis de cor - Padrão do site */
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #112240;
+            --accent-color: #ffd166; /* Amarelo para XNOR */
+            --text-color: #ccd6f6;
+            --text-secondary: #8892b0;
+            --card-color: #1a365d;
+            --border-color: #233554;
+            --correct-color: #10b981;
+            --wrong-color: #ef4444;
+        }
+
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar Styles - Padrão do site */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo i {
+            margin-right: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0 15px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+            background-color: rgba(255, 209, 102, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            background: none;
+            border: none;
+        }
+
+        /* Header Styles - Padrão do site */
+        header {
+            background-color: var(--secondary-color);
+            padding: 40px 0 30px;
+            text-align: center;
+            margin-top: 70px;
+            border-bottom: 3px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(255, 209, 102, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Seções de Conteúdo - Padrão do site */
+        .intro, .content-section, .exercises-section {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            font-size: 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .subsection-title {
+            color: var(--text-color);
+            margin: 30px 0 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .highlight-box {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .definition {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        /* Tabelas - Padrão do site */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--card-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table th {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            background-color: var(--primary-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Símbolo Lógico - Específico para XNOR */
+        .logic-symbol {
+            text-align: center;
+            font-size: 5rem;
+            color: var(--accent-color);
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        /* Cards de Exercícios - Padrão do site */
+        .exercise-card {
+            background-color: var(--card-color);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .exercise-title {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .exercise-title i {
+            margin-right: 10px;
+        }
+
+        /* Estilos para Questões - Padrão do site */
+        .exercise-question {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(26, 54, 93, 0.3);
+            border-radius: 8px;
+        }
+
+        .option-group {
+            margin: 15px 0;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
+
+        .check-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .check-btn:hover {
+            background-color: #e6bc5e;
+            transform: translateY(-2px);
+        }
+
+        .check-btn:disabled {
+            background-color: var(--text-secondary);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Result Modal - Padrão do site */
+        .result-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .result-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .result-content {
+            background-color: var(--card-color);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .result-modal.active .result-content {
+            transform: scale(1);
+        }
+
+        .result-header {
+            padding: 25px;
+            text-align: center;
+            color: white;
+        }
+
+        .result-header.correct {
+            background-color: var(--correct-color);
+        }
+
+        .result-header.wrong {
+            background-color: var(--wrong-color);
+        }
+
+        .result-body {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .result-message {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .result-explanation {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .close-result {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Footer - Padrão do site */
+        footer {
+            background-color: var(--secondary-color);
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-links i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-contact {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .whatsapp-contact {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-contact:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-contact i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design - Padrão do site */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                border-top: 1px solid var(--border-color);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+            }
+
+            .nav-link {
+                height: auto;
+                padding: 15px;
+                justify-content: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .intro, .content-section, .exercises-section {
+                padding: 25px;
+            }
+            
+            .logic-symbol {
+                font-size: 4rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .exercise-card {
+                padding: 20px;
+            }
+            
+            .nav-logo {
+                font-size: 1.4rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Result Modal -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <div class="result-header" id="resultHeader">
+                <div class="result-icon" id="resultIcon"></div>
+                <h2 id="resultTitle">Resultado</h2>
+            </div>
+            <div class="result-body">
+                <p class="result-message" id="resultMessage"></p>
+                <p class="result-explanation" id="resultExplanation"></p>
+                <button class="close-result" onclick="closeResult()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-logo">
+                <i class="fas fa-microchip"></i> Portas Lógicas
+            </a>
+            
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../politica.html" class="nav-link">
+                        <i class="fas fa-file-contract"></i> Política
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../termos.html" class="nav-link">
+                        <i class="fas fa-balance-scale"></i> Termos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../contacto.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Contacto
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../sobre.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i> Sobre
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../apoio.html" class="nav-link">
+                        <i class="fas fa-heart"></i> Apoie
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1 class="title">Porta XNOR - O Comparador de Igualdade</h1>
+            <p class="subtitle">Entenda a porta que detecta quando as entradas são iguais - a negação do XOR</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Seção de Introdução -->
+        <section class="intro">
+            <h2 class="section-title">O Que é uma Porta XNOR?</h2>
+            <p>A porta XNOR (NÃO OU Exclusivo) é uma <strong>porta lógica especializada</strong> que implementa a negação da porta XOR. Ela detecta quando as entradas são iguais, produzindo saída 1 quando as entradas são idênticas (ambas 0 ou ambas 1). A porta XNOR é essencialmente um <strong>comparador de igualdade</strong>.</p>
+            
+            <div class="highlight-box">
+                <p class="definition">DEFINIÇÃO: A porta XNOR produz uma saída com valor lógico 1 (ALTO/VERDADEIRO) quando as entradas são IGUAIS. Para duas entradas, a saída é 1 quando ambas são 0 OU ambas são 1. A saída é 0 quando as entradas são diferentes.</p>
+            </div>
+            
+            <p>Na álgebra booleana, a operação XNOR é representada pelo símbolo ⊙ ou ≡. A expressão booleana para uma porta XNOR de duas entradas é escrita como <span class="formula">Q = A ⊙ B</span> ou <span class="formula">Q = (A ⊕ B)'</span> ou <span class="formula">Q = A·B + A'·B'</span>.</p>
+            
+            <div class="logic-symbol">
+                <span>XNOR</span>
+            </div>
+            
+            <p>A porta XNOR é fundamental em circuitos comparadores e em sistemas de detecção de paridade. Ela é usada para verificar se dois bits são iguais, o que é essencial em operações de comparação, verificação de paridade e em certos tipos de somadores binários.</p>
+        </section>
+
+        <!-- Seção: Funcionamento com 2 Entradas -->
+        <section class="content-section" id="duas-entradas">
+            <h2 class="section-title">Funcionamento com 2 Entradas</h2>
+            
+            <h3 class="subsection-title">Tabela Verdade da Porta XNOR de 2 Entradas</h3>
+            <table>
+                <tr>
+                    <th>Entrada A</th>
+                    <th>Entrada B</th>
+                    <th>Saída Q (A XNOR B)</th>
+                </tr>
+                <tr><td>0</td><td>0</td><td>1</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td></tr>
+            </table>
+            
+            <p><em>Observação: Compare com a tabela verdade da porta XOR - a porta XNOR é exatamente o oposto!</em></p>
+            
+            <h3 class="subsection-title">Exercício Prático 1</h3>
+            <div class="exercise-question">
+                <p><strong>Qual é a saída Q de uma porta XNOR quando A=0 e B=0?</strong></p>
+                <div class="option-group">
+                    <div class="radio-option">
+                        <input type="radio" id="ex1-option1" name="exercise1" value="0">
+                        <label for="ex1-option1">0</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="ex1-option2" name="exercise1" value="1">
+                        <label for="ex1-option2">1</label>
+                    </div>
+                </div>
+                <button class="check-btn" onclick="checkAnswer(1, '1')" disabled id="btnExercise1">Verificar Resposta</button>
+            </div>
+        </section>
+
+        <!-- Seção: Funcionamento com 3 Entradas -->
+        <section class="content-section" id="tres-entradas">
+            <h2 class="section-title">Funcionamento com 3 Entradas</h2>
+            
+            <h3 class="subsection-title">Tabela Verdade da Porta XNOR de 3 Entradas</h3>
+            <p><em>Nota: Para múltiplas entradas, a porta XNOR produz saída 1 quando o número de entradas em 1 é PAR (incluindo 0).</em></p>
+            <table>
+                <tr>
+                    <th>Entrada A</th>
+                    <th>Entrada B</th>
+                    <th>Entrada C</th>
+                    <th>Saída Q (A XNOR B XNOR C)</th>
+                </tr>
+                <tr><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+                <tr><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+                <tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+                <tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+                <tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+            </table>
+            
+            <h3 class="subsection-title">Exercício Prático 2</h3>
+            <div class="exercise-question">
+                <p><strong>Qual é a saída Q de uma porta XNOR de 3 entradas quando A=1, B=1 e C=0?</strong></p>
+                <div class="option-group">
+                    <div class="radio-option">
+                        <input type="radio" id="ex2-option1" name="exercise2" value="0">
+                        <label for="ex2-option1">0</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="ex2-option2" name="exercise2" value="1">
+                        <label for="ex2-option2">1</label>
+                    </div>
+                </div>
+                <button class="check-btn" onclick="checkAnswer(2, '1')" disabled id="btnExercise2">Verificar Resposta</button>
+            </div>
+        </section>
+
+        <!-- Seção de Propriedades Booleanas -->
+        <section class="content-section" id="propriedades">
+            <h2 class="section-title">Propriedades Booleanas da Porta XNOR</h2>
+            
+            <div class="highlight-box">
+                <p><strong>Identidade:</strong> <span class="formula">A ⊙ 0 = A'</span> | <span class="formula">A ⊙ 1 = A</span></p>
+                <p><strong>Reflexão:</strong> <span class="formula">A ⊙ A = 1</span> | <span class="formula">A ⊙ A' = 0</span></p>
+                <p><strong>Comutatividade:</strong> <span class="formula">A ⊙ B = B ⊙ A</span></p>
+                <p><strong>Associatividade:</strong> <span class="formula">(A ⊙ B) ⊙ C = A ⊙ (B ⊙ C)</span></p>
+                <p><strong>Relação com XOR:</strong> <span class="formula">(A ⊙ B) = (A ⊕ B)'</span></p>
+                <p><strong>Expansão:</strong> <span class="formula">A ⊙ B = A·B + A'·B'</span></p>
+            </div>
+            
+            <h3 class="subsection-title">Exercício Prático 3</h3>
+            <div class="exercise-question">
+                <p><strong>Qual é o resultado da expressão A ⊙ A (A XNOR A) segundo a propriedade de reflexão?</strong></p>
+                <div class="option-group">
+                    <div class="radio-option">
+                        <input type="radio" id="ex3-option1" name="exercise3" value="0">
+                        <label for="ex3-option1">0</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="ex3-option2" name="exercise3" value="1">
+                        <label for="ex3-option2">1</label>
+                    </div>
+                </div>
+                <button class="check-btn" onclick="checkAnswer(3, '1')" disabled id="btnExercise3">Verificar Resposta</button>
+            </div>
+        </section>
+
+        <!-- Seção de Exercícios -->
+        <section class="exercises-section" id="exercicios">
+            <h2 class="section-title">Exercícios de Circuitos XNOR</h2>
+            
+            <!-- Exercício 4 -->
+            <div class="exercise-card">
+                <h3 class="exercise-title"><i class="fas fa-pen-to-square"></i> Exercício 4: Circuito com 2 Entradas</h3>
+                <div class="exercise-question">
+                    <p><strong>Qual é a saída de uma porta XNOR quando A=0 e B=1?</strong></p>
+                    <div class="option-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ex4-option1" name="exercise4" value="0">
+                            <label for="ex4-option1">0</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex4-option2" name="exercise4" value="1">
+                            <label for="ex4-option2">1</label>
+                        </div>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer(4, '0')" disabled id="btnExercise4">Verificar Resposta</button>
+                </div>
+            </div>
+            
+            <!-- Exercício 5 -->
+            <div class="exercise-card">
+                <h3 class="exercise-title"><i class="fas fa-diagram-project"></i> Exercício 5: Análise de Tabela Verdade</h3>
+                <div class="exercise-question">
+                    <p><strong>Em uma porta XNOR com 3 entradas, quantas combinações de entrada produzem saída 1?</strong></p>
+                    <div class="option-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ex5-option1" name="exercise5" value="2">
+                            <label for="ex5-option1">2 combinações</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex5-option2" name="exercise5" value="4">
+                            <label for="ex5-option2">4 combinações</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex5-option3" name="exercise5" value="6">
+                            <label for="ex5-option3">6 combinações</label>
+                        </div>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer(5, '4')" disabled id="btnExercise5">Verificar Resposta</button>
+                </div>
+            </div>
+            
+            <!-- Exercício 6 -->
+            <div class="exercise-card">
+                <h3 class="exercise-title"><i class="fas fa-lightbulb"></i> Exercício 6: Aplicação Prática</h3>
+                <div class="exercise-question">
+                    <p><strong>Qual é a principal aplicação da porta XNOR em circuitos digitais?</strong></p>
+                    <div class="option-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ex6-option1" name="exercise6" value="comparacao">
+                            <label for="ex6-option1">Comparação de bits (detectar se são iguais)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex6-option2" name="exercise6" value="paridade">
+                            <label for="ex6-option2">Verificação de paridade par</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ex6-option3" name="exercise6" value="ambas">
+                            <label for="ex6-option3">Ambas as opções acima</label>
+                        </div>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer(6, 'ambas')" disabled id="btnExercise6">Verificar Resposta</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="../politica.html"><i class="fas fa-file-contract"></i> Política</a></li>
+                        <li><a href="../termos.html"><i class="fas fa-balance-scale"></i> Termos</a></li>
+                        <li><a href="../contacto.html"><i class="fas fa-address-book"></i> Contacto</a></li>
+                        <li><a href="../sobre.html"><i class="fas fa-info-circle"></i> Sobre</a></li>
+                        <li><a href="../apoio.html"><i class="fas fa-heart"></i> Apoie</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Portas Lógicas</h3>
+                    <ul class="footer-links">
+                        <li><a href="AND.html"><i class="fas fa-project-diagram"></i> Porta AND</a></li>
+                        <li><a href="OR.html"><i class="fas fa-project-diagram"></i> Porta OR</a></li>
+                        <li><a href="XOR.html"><i class="fas fa-project-diagram"></i> Porta XOR</a></li>
+                        <li><a href="NAND.html"><i class="fas fa-project-diagram"></i> Porta NAND</a></li>
+                        <li><a href="NOR.html"><i class="fas fa-project-diagram"></i> Porta NOR</a></li>
+                        <li><a href="XNOR.html"><i class="fas fa-project-diagram"></i> Porta XNOR</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto & Apoio</h3>
+                    <div class="footer-contact">
+                        <p>Tem dúvidas sobre portas lógicas?</p>
+                        <p>Entre em contacto para discutir projetos ou tirar dúvidas!</p>
+                        <a href="https://wa.me/258848672956" class="whatsapp-contact" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> WhatsApp: +258 84 867 2956
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Portas Lógicas - Projeto Educacional sem Fins Lucrativos</p>
+                <p>Desenvolvido por Edilson Silombe - Estudante de TI, Moçambique</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função para verificar resposta
+        function checkAnswer(exerciseNumber, correctAnswer) {
+            const exerciseName = `exercise${exerciseNumber}`;
+            const selectedOption = document.querySelector(`input[name="${exerciseName}"]:checked`);
+            const button = document.getElementById(`btnExercise${exerciseNumber}`);
+            
+            if (!selectedOption) {
+                return;
+            }
+            
+            const userAnswer = selectedOption.value;
+            const isCorrect = userAnswer === correctAnswer;
+            
+            // Mostrar resultado
+            showResult(isCorrect, exerciseNumber, userAnswer, correctAnswer);
+            
+            // Desabilitar o botão após responder
+            button.disabled = true;
+            
+            // Desabilitar todas as opções de rádio deste exercício
+            const radioInputs = document.querySelectorAll(`input[name="${exerciseName}"]`);
+            radioInputs.forEach(input => {
+                input.disabled = true;
+            });
+        }
+        
+        // Função para mostrar resultado
+        function showResult(isCorrect, exerciseNumber, userAnswer, correctAnswer) {
+            const modal = document.getElementById('resultModal');
+            const resultHeader = document.getElementById('resultHeader');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultMessage = document.getElementById('resultMessage');
+            const resultExplanation = document.getElementById('resultExplanation');
+            
+            // Configurar baseado no resultado
+            if (isCorrect) {
+                resultHeader.className = 'result-header correct';
+                resultIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                resultTitle.textContent = 'Resposta Correta!';
+                resultMessage.textContent = 'Parabéns! Você acertou a questão.';
+                resultMessage.style.color = 'white';
+            } else {
+                resultHeader.className = 'result-header wrong';
+                resultIcon.innerHTML = '<i class="fas fa-times-circle"></i>';
+                resultTitle.textContent = 'Resposta Incorreta';
+                resultMessage.textContent = `Sua resposta: ${userAnswer}`;
+                resultMessage.style.color = 'white';
+            }
+            
+            // Adicionar explicação baseada no exercício
+            const explanations = {
+                1: "Quando A=0 e B=0, a saída da porta XNOR é 1. A porta XNOR produz 1 quando as entradas são iguais.",
+                2: "Com A=1, B=1 e C=0, a saída é 1. Em uma porta XNOR de 3 entradas, a saída é 1 quando um número par de entradas é 1 (neste caso, duas entradas em 1 = número par).",
+                3: "Pela propriedade de reflexão, A ⊙ A = 1. Isso significa que XNORing uma variável com ela mesma resulta em 1.",
+                4: "Quando A=0 e B=1, a porta XNOR produz saída 0. A porta XNOR só produz 1 quando as entradas são iguais.",
+                5: "4 combinações produzem saída 1. Em uma porta XNOR de 3 entradas, a saída é 1 quando há 0 ou 2 entradas em 1 (combinações: 000, 011, 101, 110).",
+                6: "Ambas as opções estão corretas. A porta XNOR é usada tanto para comparação de bits (detectar se são iguais) quanto para verificação de paridade par em sistemas de detecção de erros."
+            };
+            
+            resultExplanation.textContent = explanations[exerciseNumber];
+            
+            // Mostrar modal
+            modal.classList.add('active');
+        }
+        
+        // Função para fechar resultado
+        function closeResult() {
+            const modal = document.getElementById('resultModal');
+            modal.classList.remove('active');
+        }
+        
+        // Habilitar botões quando uma opção for selecionada
+        document.addEventListener('DOMContentLoaded', function() {
+            // Para cada exercício, adicionar listener aos inputs
+            for (let i = 1; i <= 6; i++) {
+                const radioInputs = document.querySelectorAll(`input[name="exercise${i}"]`);
+                const button = document.getElementById(`btnExercise${i}`);
+                
+                radioInputs.forEach(input => {
+                    input.addEventListener('change', function() {
+                        button.disabled = false;
+                    });
+                });
+            }
+            
+            // Navbar functionality
+            const hamburger = document.getElementById("hamburger");
+            const navMenu = document.getElementById("nav-menu");
+            
+            hamburger.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+            }));
+            
+            // Set active nav link based on current page
+            function setActiveNavLink() {
+                const currentPage = window.location.pathname.split("/").pop();
+                const navLinks = document.querySelectorAll(".nav-link");
+                
+                navLinks.forEach(link => {
+                    link.classList.remove("active");
+                    
+                    // Get the href attribute and extract the filename
+                    const linkHref = link.getAttribute("href");
+                    if (linkHref === currentPage || 
+                        (currentPage === "" && linkHref === "index.html") ||
+                        (currentPage === "index.html" && linkHref === "index.html")) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+            
+            // Set active nav link on page load
+            setActiveNavLink();
+            
+            // Animações para cards de exercícios
+            const exerciseCards = document.querySelectorAll(".exercise-card");
+            exerciseCards.forEach(card => {
+                card.addEventListener("mouseenter", function() {
+                    this.style.transform = "translateY(-5px)";
+                    this.style.boxShadow = "0 10px 20px rgba(0, 0, 0, 0.3)";
+                });
+                
+                card.addEventListener("mouseleave", function() {
+                    this.style.transform = "translateY(-3px)";
+                    this.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.3)";
+                });
+            });
+            
+            // Animações para botões
+            const checkButtons = document.querySelectorAll(".check-btn");
+            checkButtons.forEach(button => {
+                button.addEventListener("mouseenter", function() {
+                    if (!this.disabled) {
+                        this.style.transform = "translateY(-2px)";
+                    }
+                });
+                
+                button.addEventListener("mouseleave", function() {
+                    if (!this.disabled) {
+                        this.style.transform = "translateY(0)";
+                    }
+                });
+            });
+        });
+        
+        // Fechar modal com ESC
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                const modal = document.getElementById('resultModal');
+                if (modal.classList.contains('active')) {
+                    closeResult();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tags Básicas -->
+    <title>Sobre Nós - Portas Lógicas</title>
+    <meta name="description" content="Conheça a história do Portas Lógicas - site educativo sobre portas lógicas criado por Edilson Silombe, estudante de TI em Moçambique.">
+    <meta name="keywords" content="portas lógicas, eletrônica digital, computação, educação tecnológica, Moçambique, estudante TI, Edilson Silombe">
+    <meta name="author" content="Edilson Silombe">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Meta Tags Região Moçambique -->
+    <meta name="geo.region" content="MZ">
+    <meta name="geo.placename" content="Moçambique">
+    <meta name="language" content="portuguese">
+    <meta name="country" content="Mozambique">
+    <meta name="distribution" content="global">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://edilsonjs.xyz/sobre.html">
+    <meta property="og:title" content="Sobre Nós - Portas Lógicas">
+    <meta property="og:description" content="Conheça a história do Portas Lógicas, site educativo criado por Edilson Silombe, estudante de TI em Moçambique.">
+    <meta property="og:image" content="https://edilsonjs.xyz/images/og-sobre.jpg">
+    <meta property="og:locale" content="pt_MZ">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://edilsonjs.xyz/sobre.html">
+    <meta name="twitter:title" content="Sobre Nós - Portas Lógicas">
+    <meta name="twitter:description" content="Conheça a história do Portas Lógicas e seu criador, Edilson Silombe, estudante de TI em Moçambique.">
+    <meta name="twitter:image" content="https://edilsonjs.xyz/images/twitter-sobre.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://edilsonjs.xyz/sobre.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAADBSURBVHja7NexCsJAEATgby8iItjYKz6Br2JhZWUjvoKQwiKQzk5QCOQRLHyLYxO4wN0lguB8MOzC7jLM7bJ37KqKIa1iYBsA7AH4B8Wx9wDUU8Dn7QNwV8ApE0BIBJBKAc6EACsJwE4CsBMCzMSCPv8JYDqLqvt/yQD+y28uCwDOqp59K1gD0Fc7V/sEJACeOwd4AFqjDzSAtgDmAB4ZcV3vbhG36BuO0ST17lp1f3UJwCW6/6H5/hb6D/Bz/QYAWmCPGtGLFqIAAAAASUVORK5CYII=">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0a192f">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variáveis de cor */
+        :root {
+            --primary-color: #0a192f;
+            --secondary-color: #112240;
+            --accent-color: #64ffda;
+            --text-color: #ccd6f6;
+            --text-secondary: #8892b0;
+            --card-color: #1a365d;
+            --border-color: #233554;
+            --whatsapp-green: #25D366;
+            --whatsapp-dark: #1da851;
+            --channel-teal: #128C7E;
+        }
+
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navegação */
+        .navbar {
+            background-color: var(--secondary-color);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0 15px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+            background-color: rgba(100, 255, 218, 0.1);
+        }
+
+        .nav-link.active {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            padding: 40px 0 30px;
+            text-align: center;
+            margin-top: 70px;
+            border-bottom: 3px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Conteúdo Principal */
+        .about-content {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .about-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .about-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .about-content h2 {
+            color: var(--accent-color);
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .about-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .about-content h3 {
+            color: var(--accent-color);
+            margin: 25px 0 10px;
+            font-size: 1.4rem;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .about-content ul, .about-content ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about-content li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Seção do Perfil */
+        .profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            flex: 0 0 200px;
+            text-align: center;
+        }
+
+        .profile-img-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-img-placeholder i {
+            font-size: 5rem;
+            color: var(--accent-color);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-info h2 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 2rem;
+            border: none;
+            padding: 0;
+        }
+
+        .profile-tag {
+            display: inline-block;
+            background-color: var(--card-color);
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .profile-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Boxes de Destaque */
+        .highlight-box {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .highlight-box h4 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Grid de Exploração */
+        .exploration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .explore-card {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .explore-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .explore-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .explore-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Informações de País */
+        .country-info {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .flag-icon {
+            font-size: 4rem;
+            color: #009639;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .flag-icon:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .country-details h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            border: none;
+            padding: 0;
+        }
+
+        /* Missão e Visão */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .mission-card, .vision-card {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .mission-card h3, .vision-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Informações de Contacto */
+        .contact-info {
+            background-color: var(--card-color);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border: 2px solid var(--border-color);
+        }
+
+        .whatsapp-contact {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .whatsapp-contact:hover {
+            background-color: var(--whatsapp-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .channel-contact {
+            background-color: var(--channel-teal);
+            margin-left: 10px;
+        }
+
+        .channel-contact:hover {
+            background-color: #0e7669;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            padding: 40px 0 20px;
+            margin-top: 50px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-contact {
+            background-color: var(--card-color);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--secondary-color);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+                border-top: 1px solid var(--border-color);
+                z-index: 999;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 10px 0;
+            }
+
+            .nav-link {
+                height: auto;
+                padding: 15px;
+                justify-content: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .country-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                padding: 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+            
+            .exploration-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .about-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .about-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .nav-logo {
+                font-size: 1.4rem;
+            }
+            
+            .profile-img-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .profile-img-placeholder i {
+                font-size: 3.5rem;
+            }
+            
+            .profile-info h2 {
+                font-size: 1.6rem;
+            }
+            
+            .profile-tag {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 8px;
+            }
+            
+            .flag-icon {
+                font-size: 3rem;
+            }
+            
+            .whatsapp-contact {
+                padding: 10px 20px;
+                font-size: 1rem;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-microchip"></i> Portas Lógicas
+            </a>
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="politica.html" class="nav-link">
+                        <i class="fas fa-file-contract"></i> Política
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="termos.html" class="nav-link">
+                        <i class="fas fa-balance-scale"></i> Termos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="contacto.html" class="nav-link">
+                        <i class="fas fa-address-book"></i> Contacto
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="sobre.html" class="nav-link active">
+                        <i class="fas fa-info-circle"></i> Sobre
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="apoio.html" class="nav-link active">
+                        <i class="fas fa-heart"></i> Apoie
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1 class="title">Sobre Nós</h1>
+            <p class="subtitle">Conheça a história por trás do Portas Lógicas</p>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <div class="about-content">
+            <!-- Seção do Perfil -->
+            <div class="profile-section">
+                <div class="profile-image">
+                    <div class="profile-img-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                
+                <div class="profile-info">
+                    <h2>Edilson Silombe</h2>
+                    <div>
+                        <span class="profile-tag"><i class="fas fa-graduation-cap"></i> Estudante de TI</span>
+                        <span class="profile-tag"><i class="fas fa-map-marker-alt"></i> Moçambique</span>
+                        <span class="profile-tag"><i class="fas fa-heart"></i> Explorador de Tecnologia</span>
+                    </div>
+                    
+                    <p style="margin-top: 20px;">Olá! Sou um estudante de Tecnologias de Informação (TI) de Moçambique, apaixonado por explorar o mundo da tecnologia e compartilhar conhecimentos. Com 19 anos, vejo na informática não apenas uma área de estudo, mas um universo de possibilidades a serem descobertas.</p>
+                    
+                    <p>Acredito que o conhecimento deve ser compartilhado e acessível a todos, e é com essa mentalidade que criei o site Portas Lógicas - para ajudar outros estudantes e entusiastas a compreenderem os fundamentos da computação.</p>
+                </div>
+            </div>
+
+            <!-- Sobre o Site -->
+            <div class="about-section">
+                <h2>Sobre o Site Portas Lógicas</h2>
+                <p>O <strong>Portas Lógicas</strong> nasceu da minha paixão pela eletrônica digital e do desejo de criar um recurso educativo acessível para estudantes como eu. O site tem como objetivo:</p>
+                
+                <ul>
+                    <li>Explicar conceitos complexos de forma simples e clara</li>
+                    <li>Fornecer ferramentas interativas para aprendizado prático</li>
+                    <li>Criar uma comunidade de pessoas interessadas em computação</li>
+                    <li>Contribuir para o desenvolvimento tecnológico em Moçambique e além</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <h4><i class="fas fa-lightbulb"></i> Por que Portas Lógicas?</h4>
+                    <p>As portas lógicas são os blocos fundamentais de todos os sistemas digitais. Entendê-las é essencial para compreender como funcionam os computadores, smartphones e todos os dispositivos eletrônicos que usamos no dia a dia. Este site busca desmistificar esses conceitos e mostrar como algo aparentemente complexo pode ser compreendido por qualquer pessoa interessada.</p>
+                </div>
+            </div>
+
+            <!-- Minha Jornada de Exploração -->
+            <div class="about-section">
+                <h2>Minha Jornada de Exploração</h2>
+                <p>Como um explorador da tecnologia, estou constantemente aprendendo e experimentando novas coisas. Minhas áreas de interesse e exploração incluem:</p>
+                
+                <div class="exploration-grid">
+                    <div class="explore-card">
+                        <i class="fas fa-code"></i>
+                        <h4>Programação</h4>
+                        <p>Explorando diferentes linguagens e criando projetos pessoais</p>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h4>Redes</h4>
+                        <p>Estudando como os computadores se comunicam entre si</p>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <i class="fas fa-server"></i>
+                        <h4>Sistemas</h4>
+                        <p>Compreendendo como os sistemas operacionais funcionam</p>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Segurança</h4>
+                        <p>Aprendendo sobre proteção de dados e sistemas</p>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Tecnologia Móvel</h4>
+                        <p>Explorando o mundo dos aplicativos e dispositivos móveis</p>
+                    </div>
+                    
+                    <div class="explore-card">
+                        <i class="fas fa-globe-africa"></i>
+                        <h4>Tecnologia em África</h4>
+                        <p>Estudando como a tecnologia pode transformar o continente</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daqui de Moçambique -->
+            <div class="about-section">
+                <h2>Daqui de Moçambique</h2>
+                
+                <div class="country-info">
+                    <div class="flag-icon" aria-label="Bandeira de Moçambique">
+                        🇲🇿
+                    </div>
+                    
+                    <div class="country-details">
+                        <h3>Moçambique - Terra das Boas Pessoas</h3>
+                        <p>Sou orgulhosamente moçambicano, um país com uma rica cultura e um grande potencial tecnológico. Acredito que a tecnologia pode desempenhar um papel crucial no desenvolvimento do nosso país, e é por isso que me dedico a aprender e compartilhar conhecimentos na área de TI.</p>
+                        
+                        <p>Em Moçambique, assim como em muitos países africanos, o acesso à educação tecnológica de qualidade ainda é um desafio. O Portas Lógicas é minha contribuição para ajudar a superar essa barreira, oferecendo conteúdo educativo gratuito e acessível a todos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Missão e Visão -->
+            <div class="mission-vision">
+                <div class="mission-card">
+                    <h3><i class="fas fa-bullseye"></i> Missão</h3>
+                    <p>Democratizar o conhecimento sobre eletrônica digital e computação, tornando-o acessível e compreensível para estudantes e entusiastas em Moçambique e em todos os países de língua portuguesa.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <h3><i class="fas fa-eye"></i> Visão</h3>
+                    <p>Ser a principal referência online em língua portuguesa para aprendizado sobre portas lógicas e fundamentos da computação, contribuindo para a formação de uma nova geração de profissionais de TI em África.</p>
+                </div>
+            </div>
+
+            <!-- Contacto -->
+            <div class="contact-info">
+                <h2><i class="fas fa-handshake"></i> Vamos Conectar!</h2>
+                <p>Se você também é apaixonado por tecnologia, gosta de explorar coisas novas ou tem interesse em portas lógicas e computação, adoraria conectar com você!</p>
+                
+                <p>Juntos podemos aprender, explorar e contribuir para o crescimento tecnológico no nosso país e além.</p>
+                
+                <div style="margin-top: 20px;">
+                    <a href="https://wa.me/258848672956" class="whatsapp-contact" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i> WhatsApp: +258 84 867 2956
+                    </a>
+                </div>
+                
+                <p style="margin-top: 20px;">Ou junte-se ao nosso canal no WhatsApp para receber atualizações e dicas:</p>
+                
+                <a href="https://www.whatsapp.com/channel/0029Vb7E37b6WaKrTZqBCQ28" class="whatsapp-contact channel-contact" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> Canal do WhatsApp
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="politica.html"><i class="fas fa-file-contract"></i> Política de Privacidade</a></li>
+                        <li><a href="termos.html"><i class="fas fa-balance-scale"></i> Termos de Uso</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-address-book"></i> Contacto</a></li>
+                        <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Portas Lógicas</h3>
+                    <ul class="footer-links">
+                        <li><a href="portas/AND.html"><i class="fas fa-project-diagram"></i> Porta AND</a></li>
+                        <li><a href="portas/OR.html"><i class="fas fa-project-diagram"></i> Porta OR</a></li>
+                        <li><a href="portas/XOR.html"><i class="fas fa-project-diagram"></i> Porta XOR</a></li>
+                        <li><a href="portas/NAND.html"><i class="fas fa-project-diagram"></i> Porta NAND</a></li>
+                        <li><a href="portas/NOR.html"><i class="fas fa-project-diagram"></i> Porta NOR</a></li>
+                        <li><a href="portas/XNOR.html"><i class="fas fa-project-diagram"></i> Porta XNOR</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p>Tem dúvidas sobre portas lógicas?</p>
+                        <p>Entre em contacto para discutir projetos ou tirar dúvidas!</p>
+                        <a href="https://wa.me/258848672956" class="whatsapp-contact" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> WhatsApp: +258 84 867 2956
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Portas Lógicas - Todos os direitos reservados</p>
+                <p>Site desenvolvido por Edilson Silombe - Estudante de Informática, Moçambique</p>
+                <p style="margin-top: 10px; font-style: italic;">"Explorando a tecnologia, um circuito de cada vez"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Navegação responsiva
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+        
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+            hamburger.setAttribute("aria-expanded", navMenu.classList.contains("active"));
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+                hamburger.setAttribute("aria-expanded", "false");
+            });
+        });
+        
+        // Marcar link ativo
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split("/").pop();
+            const navLinks = document.querySelectorAll(".nav-link");
+            
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                const linkHref = link.getAttribute("href");
+                
+                if (linkHref === currentPage || 
+                    (currentPage === "" && linkHref === "index.html") ||
+                    (currentPage === "sobre.html" && linkHref.includes("sobre"))) {
+                    link.classList.add("active");
+                }
+            });
+        }
+        
+        // Animações dos cards de exploração
+        document.addEventListener("DOMContentLoaded", () => {
+            setActiveNavLink();
+            
+            const exploreCards = document.querySelectorAll(".explore-card");
+            exploreCards.forEach(card => {
+                card.addEventListener("mouseenter", function() {
+                    this.querySelector("i").style.transform = "scale(1.2)";
+                });
+                
+                card.addEventListener("mouseleave", function() {
+                    this.querySelector("i").style.transform = "scale(1)";
+                });
+            });
+            
+            // Animação da bandeira
+            const flagIcon = document.querySelector(".flag-icon");
+            if (flagIcon) {
+                flagIcon.addEventListener("mouseenter", function() {
+                    this.style.transform = "rotate(5deg) scale(1.1)";
+                });
+                
+                flagIcon.addEventListener("mouseleave", function() {
+                    this.style.transform = "rotate(0) scale(1)";
+                });
+            }
+            
+            // Tags de perfil animadas
+            const profileTags = document.querySelectorAll(".profile-tag");
+            profileTags.forEach(tag => {
+                tag.addEventListener("mouseenter", function() {
+                    this.style.transform = "translateY(-2px)";
+                });
+                
+                tag.addEventListener("mouseleave", function() {
+                    this.style.transform = "translateY(0)";
+                });
+            });
+        });
+        
+        // Fechar menu ao clicar fora
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".nav-container") && navMenu.classList.contains("active")) {
+                navMenu.classList.remove("active");
+                hamburger.setAttribute("aria-expanded", "false");
+            }
+        });
+        
+        // Detectar tecla ESC para fechar menu
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && navMenu.classList.contains("active")) {
+                navMenu.classList.remove("active");
+                hamburger.setAttribute("aria-expanded", "false");
+            }
+        });
+    </script>
+</body>
+</html>
