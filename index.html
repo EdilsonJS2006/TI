@@ -1,69 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-MZ">
-<head>
+<html lang="pt-BR">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Meta Tags Básicas -->
-    <title>Portas Lógicas - Guia Completo</title>
-    <meta name="description" content="Guia completo sobre portas lógicas - fundamentos da computação, tabelas verdade, simulador interativo e explicações detalhadas para estudantes em Moçambique.">
-    <meta name="keywords" content="portas lógicas, eletrônica digital, computação, AND, OR, XOR, NAND, NOR, XNOR, tabela verdade, álgebra booleana, Moçambique, educação tecnológica">
-    <meta name="author" content="Edilson Silombe">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Meta Tags Região Moçambique -->
-    <meta name="geo.region" content="MZ">
-    <meta name="geo.placename" content="Moçambique">
-    <meta name="language" content="portuguese">
-    <meta name="country" content="Mozambique">
-    <meta name="distribution" content="global">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://edilsonjs.xyz/">
-    <meta property="og:title" content="Portas Lógicas - Guia Completo">
-    <meta property="og:description" content="Guia completo sobre portas lógicas - fundamentos da computação, tabelas verdade, simulador interativo para estudantes em Moçambique.">
-    <meta property="og:image" content="https://edilsonjs.xyz/images/og-image.jpg">
-    <meta property="og:locale" content="pt_MZ">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://edilsonjs.xyz/">
-    <meta name="twitter:title" content="Portas Lógicas - Guia Completo">
-    <meta name="twitter:description" content="Guia completo sobre portas lógicas - fundamentos da computação, tabelas verdade, simulador interativo para estudantes em Moçambique.">
-    <meta name="twitter:image" content="https://edilsonjs.xyz/images/twitter-image.jpg">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://edilsonjs.xyz/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAADBSURBVHja7NexCsJAEATgby8iItjYKz6Br2JhZWUjvoKQwiKQzk5QCOQRLHyLYxO4wN0lguB8MOzC7jLM7bJ37KqKIa1iYBsA7AH4B8Wx9wDUU8Dn7QNwV8ApE0BIBJBKAc6EACsJwE4CsBMCzMSCPv8JYDqLqvt/yQD+y28uCwDOqp59K1gD0Fc7V/sEJACeOwd4AFqjDzSAtgDmAB4ZcV3vbhG36BuO0ST17lp1f3UJwCW6/6H5/hb6D/Bz/QYAWmCPGtGLFqIAAAAASUVORK5CYII=">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
-    
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#0a192f">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Apoie o Projeto - Portas Lógicas</title>
+    <!-- Font Awesome 6 (gratuito) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Variáveis de cor */
-        :root {
-            --primary-color: #0a192f;
-            --secondary-color: #112240;
-            --accent-color: #64ffda;
-            --text-color: #ccd6f6;
-            --text-secondary: #8892b0;
-            --card-color: #1a365d;
-            --border-color: #233554;
-            --whatsapp-green: #25D366;
-            --whatsapp-dark: #1da851;
-            --error-color: #ff6b6b;
-            --success-color: #4CAF50;
-        }
-
-        /* Reset e configurações gerais */
         * {
             margin: 0;
             padding: 0;
@@ -72,466 +15,231 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--primary-color);
-            color: var(--text-color);
+            background-color: #0a192f; /* primary-color */
+            color: #ccd6f6;            /* text-color */
             line-height: 1.6;
-            padding-top: 70px;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: #0a192f;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(204,214,246,0.1);
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navegação */
-        .navbar {
-            background-color: var(--secondary-color);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 2px solid var(--border-color);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
-            height: 70px;
+            padding: 1rem 0;
         }
 
         .nav-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #64ffda;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.5rem;
+        }
+
+        .nav-logo i {
+            font-size: 1.6rem;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 5px;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            list-style: none;
         }
 
         .nav-link {
-            color: var(--text-color);
+            color: #ccd6f6;
             text-decoration: none;
-            padding: 0 15px;
-            height: 70px;
+            font-size: 1rem;
+            padding: 0.5rem 0.75rem;
+            transition: 0.3s;
             display: flex;
             align-items: center;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            border-bottom: 3px solid transparent;
-            gap: 8px;
+            gap: 0.5rem;
+            border-radius: 8px;
         }
 
-        .nav-link:hover {
-            color: var(--accent-color);
-            background-color: rgba(100, 255, 218, 0.1);
+        .nav-link i {
+            font-size: 1rem;
         }
 
-        .nav-link.active {
-            color: var(--accent-color);
-            border-bottom: 3px solid var(--accent-color);
+        .nav-link:hover, .nav-link.active {
+            color: #64ffda;
+            background: rgba(100,255,218,0.1);
         }
 
         .hamburger {
             display: none;
             background: none;
             border: none;
-            color: var(--accent-color);
+            color: #ccd6f6;
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 5px;
         }
 
-        /* Header */
-        header {
-            background-color: var(--secondary-color);
-            padding: 40px 0 30px;
-            text-align: center;
-            margin-top: 70px;
-            border-bottom: 3px solid var(--accent-color);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .title {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-            text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
-
-        /* Introdução */
-        .intro {
-            background-color: var(--secondary-color);
-            padding: 40px;
-            border-radius: 10px;
-            margin: 40px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            border-left: 5px solid var(--accent-color);
-        }
-
-        .intro h2 {
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-size: 2rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .intro p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .author-info {
-            background-color: var(--card-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        /* Seção de Portas Lógicas */
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin: 40px 0 30px;
-            color: var(--accent-color);
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .gates-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .gate-card {
-            background-color: var(--card-color);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent-color);
-        }
-
-        .gate-name {
-            color: var(--accent-color);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            text-align: center;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .gate-explanation {
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            flex: 1;
-        }
-
-        .gate-symbol {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 4rem;
-            color: var(--accent-color);
-            height: 80px;
+        /* ========== CONTEÚDO PRINCIPAL ========== */
+        .main-content {
+            min-height: calc(100vh - 80px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            padding: 2rem;
         }
 
-        .truth-table {
+        .support-card {
+            max-width: 800px;
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background-color: var(--secondary-color);
-            border-radius: 8px;
+            background: rgba(17, 34, 64, 0.8);
+            backdrop-filter: blur(2px);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.4);
+            border: 1px solid rgba(100,255,218,0.2);
             overflow: hidden;
-            border: 1px solid var(--border-color);
         }
 
-        .truth-table th {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            padding: 12px;
+        .card-header {
+            background: #0f2a3f;
+            padding: 2rem 1.5rem;
             text-align: center;
-            font-weight: 600;
+            border-bottom: 1px solid #64ffda30;
         }
 
-        .truth-table td {
-            padding: 12px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .truth-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* Seção de Teste */
-        .testing-section {
-            background-color: var(--secondary-color);
-            padding: 40px;
-            border-radius: 10px;
-            margin: 40px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .testing-section h2 {
-            color: var(--accent-color);
-            margin-bottom: 20px;
+        .card-header h1 {
             font-size: 2rem;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            margin-bottom: 0.5rem;
+            color: #64ffda;
         }
 
-        .testing-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            align-items: start;
-        }
-
-        .testing-info {
-            background-color: var(--card-color);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .logic-tester {
-            background-color: var(--card-color);
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-controls {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .input-group label {
-            margin-bottom: 8px;
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-
-        .input-group select {
-            padding: 10px;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
+        .card-header p {
             font-size: 1rem;
-            transition: all 0.3s ease;
+            opacity: 0.9;
         }
 
-        .input-group select:focus {
-            outline: none;
-            border-color: var(--accent-color);
+        .card-body {
+            padding: 2rem 2rem;
         }
 
-        .gate-selector {
-            width: 100%;
-            margin-bottom: 20px;
+        .project-description {
+            margin-bottom: 2rem;
         }
 
-        .gate-selector label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--accent-color);
-            font-weight: 500;
+        .project-description h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #64ffda;
+            border-left: 4px solid #64ffda;
+            padding-left: 0.75rem;
         }
 
-        .gate-selector select {
-            width: 100%;
-            padding: 10px;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
+        .project-description p {
+            margin-bottom: 1rem;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            color: #e2e8f0;
         }
 
-        .gate-selector select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .test-result {
-            background-color: var(--secondary-color);
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 20px;
+        .donate-section {
             text-align: center;
-            border: 1px solid var(--border-color);
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            margin: 2rem 0 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(100,255,218,0.2);
         }
 
-        .result-value {
-            font-size: 3rem;
+        .donate-section h3 {
+            font-size: 1.5rem;
+            color: #64ffda;
+            margin-bottom: 0.5rem;
+        }
+
+        .donate-section p {
+            color: #ccd6f6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Botão PayPal estilizado */
+        .paypal-button {
+            display: inline-block;
+            background: #ffc439;
+            color: #1e2f3a;
             font-weight: bold;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-        }
-
-        #operation-description {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-top: 10px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            padding: 40px 0 20px;
-            margin-top: 50px;
-            border-top: 3px solid var(--accent-color);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--text-color);
+            font-size: 1.2rem;
+            padding: 0.9rem 2.2rem;
+            border-radius: 3rem;
             text-decoration: none;
-            transition: color 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 5px 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-color);
+        .paypal-button:hover {
+            background: #f5b81b;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
         }
 
-        .footer-contact {
-            background-color: var(--card-color);
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
+        .paypal-button:active {
+            transform: translateY(1px);
         }
 
-        .whatsapp-contact {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--whatsapp-green);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            margin-top: 15px;
-            gap: 10px;
+        .alternative-note {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: #8892b0;
+            background: rgba(0,0,0,0.3);
+            padding: 0.75rem;
+            border-radius: 1rem;
+            display: inline-block;
         }
 
-        .whatsapp-contact:hover {
-            background-color: var(--whatsapp-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        .footer-bottom {
+        .footer-note {
+            margin-top: 2rem;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            color: #8892b0;
+            border-top: 1px solid rgba(100,255,218,0.2);
+            padding-top: 1rem;
         }
 
-        /* Responsividade */
-        @media (max-width: 992px) {
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
             .nav-menu {
                 position: fixed;
                 left: -100%;
                 top: 70px;
                 flex-direction: column;
-                background-color: var(--secondary-color);
+                background-color: #0a192f;
                 width: 100%;
                 text-align: center;
                 transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 20px 0;
-                border-top: 1px solid var(--border-color);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+                padding: 1.5rem 0;
+                gap: 1rem;
                 z-index: 999;
-                gap: 0;
             }
 
             .nav-menu.active {
@@ -539,88 +247,31 @@
             }
 
             .nav-item {
-                margin: 10px 0;
+                margin: 0;
             }
 
             .nav-link {
-                height: auto;
-                padding: 15px;
                 justify-content: center;
+                padding: 0.8rem;
             }
 
-            .hamburger {
-                display: block;
+            .main-content {
+                padding: 1rem;
             }
-            
-            .gates-container {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
 
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2.2rem;
+            .card-body {
+                padding: 1.5rem;
             }
-            
-            .gates-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .intro, .testing-section {
-                padding: 25px;
-            }
-            
-            .gate-symbol {
-                font-size: 3rem;
-                height: 60px;
-            }
-            
-            .testing-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .result-value {
-                font-size: 2.5rem;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .title {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .gate-name {
-                font-size: 1.5rem;
-            }
-            
-            .gate-card {
-                padding: 20px;
-            }
-            
-            .nav-logo {
-                font-size: 1.4rem;
-            }
-            
-            .input-controls {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 0 15px;
+            .paypal-button {
+                font-size: 1rem;
+                padding: 0.7rem 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navegação -->
+    <!-- BARRA DE NAVEGAÇÃO (mesma estrutura fornecida) -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="nav-logo">
@@ -633,7 +284,7 @@
             
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active">
+                    <a href="index.html" class="nav-link">
                         <i class="fas fa-home"></i> Home
                     </a>
                 </li>
@@ -658,6 +309,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <!-- A classe 'active' indica a página atual -->
                     <a href="Apoio.html" class="nav-link active">
                         <i class="fas fa-heart"></i> Apoie
                     </a>
@@ -666,479 +318,72 @@
         </div>
     </nav>
 
-    <!-- Cabeçalho -->
-    <header>
-        <div class="container">
-            <h1 class="title">Portas Lógicas - Fundamentos da Computação</h1>
-            <p class="subtitle">Entenda as bases da eletrônica digital e da computação - Conteúdo educativo para estudantes em Moçambique</p>
-        </div>
-    </header>
-
-    <!-- Conteúdo Principal -->
-    <main class="container">
-        <!-- Seção de Introdução -->
-        <section class="intro">
-            <h2>Introdução às Portas Lógicas</h2>
-            <p>As portas lógicas são os blocos fundamentais da eletrônica digital e da computação. Elas são circuitos eletrônicos que realizam operações lógicas básicas em uma ou mais entradas binárias (0 ou 1) para produzir uma única saída binária.</p>
-            <p>Estes componentes são a base de todos os sistemas digitais, desde os mais simples circuitos até os processadores mais complexos. Compreender como funcionam as portas lógicas é essencial para quem deseja entender o funcionamento interno dos computadores.</p>
-            
-            <div class="author-info">
-                <p><strong><i class="fas fa-user-graduate"></i> Sobre o autor:</strong> Olá! Sou Edilson Silombe, estudante de informática de 19 anos de Moçambique. Apaixonado pela área da informática, criei este site para compartilhar conhecimentos sobre as portas lógicas, fundamentais para a computação.</p>
-                <p><strong><i class="fas fa-map-marker-alt"></i> Localização:</strong> Moçambique</p>
-                <p><strong><i class="fas fa-globe-africa"></i> Objetivo:</strong> Contribuir para a educação tecnológica em países de língua portuguesa.</p>
+    <!-- CONTEÚDO DA PÁGINA DE APOIO -->
+    <div class="main-content">
+        <div class="support-card">
+            <div class="card-header">
+                <h1><i class="fas fa-heart" style="color: #ff6b6b;"></i> Apoie o Projeto</h1>
+                <p>Simulador de Portas Lógicas – Educação livre e acessível</p>
             </div>
-        </section>
-
-        <!-- Seção de Portas Lógicas -->
-        <h2 class="section-title">Portas Lógicas Fundamentais</h2>
-        
-        <div class="gates-container">
-            <!-- Porta AND -->
-            <div class="gate-card" data-gate="AND">
-                <h3 class="gate-name">Porta AND</h3>
-                <p class="gate-explanation">A porta AND (E) produz uma saída 1 apenas quando todas as suas entradas são 1. Se pelo menos uma entrada for 0, a saída será 0. É equivalente à operação de multiplicação na álgebra booleana.</p>
-                <div class="gate-symbol">
-                    <span>AND</span>
+            <div class="card-body">
+                <div class="project-description">
+                    <h2>📐 Sobre o site</h2>
+                    <p>
+                        O <strong>simulador de portas lógicas</strong> foi desenvolvido para auxiliar estudantes,
+                        professores e entusiastas de eletrônica digital a explorar o comportamento de portas AND,
+                        OR, NOT, NAND, NOR, XOR e XNOR de forma interativa. Tudo gratuito, sem anúncios e com
+                        foco na aprendizagem.
+                    </p>
+                    <p>
+                        Manter este projeto no ar, adicionar novos recursos e garantir uma experiência de qualidade
+                        exige tempo e dedicação. Sua contribuição ajuda a manter o site funcionando e incentiva
+                        futuras melhorias.
+                    </p>
                 </div>
-                <table class="truth-table">
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>Saída</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                </table>
-            </div>
 
-            <!-- Porta OR -->
-            <div class="gate-card" data-gate="OR">
-                <h3 class="gate-name">Porta OR</h3>
-                <p class="gate-explanation">A porta OR (OU) produz uma saída 1 quando pelo menos uma de suas entradas for 1. A saída será 0 apenas quando todas as entradas forem 0. É equivalente à operação de adição na álgebra booleana.</p>
-                <div class="gate-symbol">
-                    <span>OR</span>
-                </div>
-                <table class="truth-table">
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>Saída</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Porta XOR -->
-            <div class="gate-card" data-gate="XOR">
-                <h3 class="gate-name">Porta XOR</h3>
-                <p class="gate-explanation">A porta XOR (OU Exclusivo) produz uma saída 1 quando as entradas são diferentes. Se as entradas forem iguais (ambas 0 ou ambas 1), a saída será 0. É conhecida como "disjunção exclusiva".</p>
-                <div class="gate-symbol">
-                    <span>XOR</span>
-                </div>
-                <table class="truth-table">
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>Saída</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>0</td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Porta NAND -->
-            <div class="gate-card" data-gate="NAND">
-                <h3 class="gate-name">Porta NAND</h3>
-                <p class="gate-explanation">A porta NAND (Não E) é o complemento da porta AND. Ela produz uma saída 0 apenas quando todas as entradas são 1. Para qualquer outra combinação, a saída será 1. É uma porta universal, capaz de construir qualquer outra porta lógica.</p>
-                <div class="gate-symbol">
-                    <span>NAND</span>
-                </div>
-                <table class="truth-table">
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>Saída</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>0</td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Porta NOR -->
-            <div class="gate-card" data-gate="NOR">
-                <h3 class="gate-name">Porta NOR</h3>
-                <p class="gate-explanation">A porta NOR (Não OU) é o complemento da porta OR. Ela produz uma saída 1 apenas quando todas as entradas são 0. Para qualquer outra combinação, a saída será 0. Assim como a NAND, é uma porta universal.</p>
-                <div class="gate-symbol">
-                    <span>NOR</span>
-                </div>
-                <table class="truth-table">
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>Saída</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>0</td>
-                    </tr>
-                </table>
-            </div>
-
-            <!-- Porta XNOR -->
-            <div class="gate-card" data-gate="XNOR">
-                <h3 class="gate-name">Porta XNOR</h3>
-                <p class="gate-explanation">A porta XNOR (Não OU Exclusivo) é o complemento da porta XOR. Ela produz uma saída 1 quando as entradas são iguais (ambas 0 ou ambas 1). Se as entradas forem diferentes, a saída será 0. Também é conhecida como "equivalência".</p>
-                <div class="gate-symbol">
-                    <span>XNOR</span>
-                </div>
-                <table class="truth-table">
-                    <tr>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>Saída</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>1</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <!-- Seção de Teste Interativo -->
-        <section class="testing-section">
-            <h2>Teste Lógico Interativo</h2>
-            <div class="testing-content">
-                <div class="testing-info">
-                    <h3><i class="fas fa-info-circle"></i> Sobre Tabelas Verdade</h3>
-                    <p>As tabelas verdade são ferramentas essenciais para entender o comportamento das portas lógicas. Elas listam todas as combinações possíveis de entradas e a saída correspondente para cada combinação.</p>
-                    <p>Para uma porta com <strong>n</strong> entradas, a tabela verdade terá <strong>2<sup>n</sup></strong> linhas (combinações possíveis). Por exemplo, uma porta com 2 entradas tem 4 combinações possíveis (00, 01, 10, 11).</p>
-                    <p>Use o simulador ao lado para testar diferentes portas lógicas com diferentes combinações de entrada e veja o resultado em tempo real.</p>
-                    <p><strong><i class="fas fa-lightbulb"></i> Dica:</strong> Tente diferentes combinações para entender como cada porta lógica funciona na prática.</p>
-                </div>
-                
-                <div class="logic-tester">
-                    <h3><i class="fas fa-flask"></i> Simulador de Portas Lógicas</h3>
+                <div class="donate-section">
+                    <h3>🤝 Faça uma doação</h3>
+                    <p>
+                        Se você gosta do projeto e quer apoiar seu desenvolvimento, qualquer valor é bem-vindo.
+                        Basta clicar no botão abaixo e escolher o valor.
+                    </p>
+                    <a href="https://www.paypal.com/ncp/payment/CHXMC4MWUGFDY" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="paypal-button">
+                        💙 Doar com PayPal
+                    </a>
                     
-                    <div class="gate-selector">
-                        <label for="gate-select">Selecione uma porta lógica:</label>
-                        <select id="gate-select">
-                            <option value="AND">Porta AND</option>
-                            <option value="OR">Porta OR</option>
-                            <option value="XOR">Porta XOR</option>
-                            <option value="NAND">Porta NAND</option>
-                            <option value="NOR">Porta NOR</option>
-                            <option value="XNOR">Porta XNOR</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-controls">
-                        <div class="input-group">
-                            <label for="input-a">Entrada A:</label>
-                            <select id="input-a">
-                                <option value="0">0 (Falso)</option>
-                                <option value="1">1 (Verdadeiro)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="input-b">Entrada B:</label>
-                            <select id="input-b">
-                                <option value="0">0 (Falso)</option>
-                                <option value="1">1 (Verdadeiro)</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="test-result">
-                        <p>Resultado da operação:</p>
-                        <div class="result-value" id="result">0</div>
-                        <p id="operation-description">A AND B = 0</p>
+                    <div class="alternative-note">
+                        <code>https://www.paypal.com/ncp/payment/CHXMC4MWUGFDY</code> ou o link do botão de doação gerado no PayPal.
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Rodapé -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Navegação</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="politica.html"><i class="fas fa-file-contract"></i> Política de Privacidade</a></li>
-                        <li><a href="termos.html"><i class="fas fa-balance-scale"></i> Termos de Uso</a></li>
-                        <li><a href="contacto.html"><i class="fas fa-address-book"></i> Contacto</a></li>
-                        <li><a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
-                        <li><a href="Apoio.html"><i class="fas fa-hand-holding-heart"></i> Apoiar</a></li>
-                    </ul>
+                
+                <div class="footer-note">
+                    Obrigado por contribuir para o conhecimento livre! 💡
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Portas Lógicas</h3>
-                    <ul class="footer-links">
-                        <li><a href="portas/AND.html"><i class="fas fa-project-diagram"></i> Porta AND</a></li>
-                        <li><a href="portas/OR.html"><i class="fas fa-project-diagram"></i> Porta OR</a></li>
-                        <li><a href="portas/XOR.html"><i class="fas fa-project-diagram"></i> Porta XOR</a></li>
-                        <li><a href="portas/NAND.html"><i class="fas fa-project-diagram"></i> Porta NAND</a></li>
-                        <li><a href="portas/NOR.html"><i class="fas fa-project-diagram"></i> Porta NOR</a></li>
-                        <li><a href="portas/XNOR.html"><i class="fas fa-project-diagram"></i> Porta XNOR</a></li>
-                    </ul>
-                </div>
-                
-                
-            <div class="footer-bottom">
-                <p>&copy; 2026 Portas Lógicas - Todos os direitos reservados</p>
-                <p>Site desenvolvido por Edilson Silombe - Estudante de Informática, Moçambique</p>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- JavaScript -->
+    <!-- SCRIPT PARA MENU HAMBURGUER -->
     <script>
-        // Funções das portas lógicas
-        const gateFunctions = {
-            AND: (a, b) => a && b,
-            OR: (a, b) => a || b,
-            XOR: (a, b) => a !== b,
-            NAND: (a, b) => !(a && b),
-            NOR: (a, b) => !(a || b),
-            XNOR: (a, b) => a === b
-        };
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
 
-        // Nomes das portas para exibição
-        const gateDisplayNames = {
-            AND: 'AND',
-            OR: 'OR', 
-            XOR: 'XOR',
-            NAND: 'NAND',
-            NOR: 'NOR',
-            XNOR: 'XNOR'
-        };
-
-        // Elementos do simulador
-        const gateSelect = document.getElementById('gate-select');
-        const inputA = document.getElementById('input-a');
-        const inputB = document.getElementById('input-b');
-        const resultElement = document.getElementById('result');
-        const operationDescription = document.getElementById('operation-description');
-
-        // Atualizar resultado do simulador
-        function updateResult() {
-            const gate = gateSelect.value;
-            const a = parseInt(inputA.value);
-            const b = parseInt(inputB.value);
-            
-            const result = gateFunctions[gate](a, b) ? 1 : 0;
-            
-            // Atualizar exibição
-            resultElement.textContent = result;
-            resultElement.style.color = result ? 'var(--accent-color)' : 'var(--error-color)';
-            
-            // Atualizar descrição da operação
-            operationDescription.textContent = `${a} ${gateDisplayNames[gate]} ${b} = ${result}`;
-        }
-
-        // Navegação responsiva
-        const hamburger = document.getElementById("hamburger");
-        const navMenu = document.getElementById("nav-menu");
-        
-        hamburger.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-            hamburger.setAttribute("aria-expanded", navMenu.classList.contains("active"));
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const expanded = navMenu.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', expanded);
         });
 
-        // Fechar menu ao clicar em um link
-        document.querySelectorAll(".nav-link").forEach(link => {
-            link.addEventListener("click", () => {
-                navMenu.classList.remove("active");
-                hamburger.setAttribute("aria-expanded", "false");
+        // Fechar menu ao clicar em um link (opcional)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', false);
             });
-        });
-
-        // Marcar link ativo
-        function setActiveNavLink() {
-            const currentPage = window.location.pathname.split("/").pop();
-            const navLinks = document.querySelectorAll(".nav-link");
-            
-            navLinks.forEach(link => {
-                link.classList.remove("active");
-                const linkHref = link.getAttribute("href");
-                
-                if (linkHref === currentPage || 
-                    (currentPage === "" && linkHref === "index.html") ||
-                    (currentPage === "index.html" && linkHref.includes("index"))) {
-                    link.classList.add("active");
-                }
-            });
-        }
-
-        // Inicialização
-        document.addEventListener("DOMContentLoaded", () => {
-            setActiveNavLink();
-            updateResult();
-            
-            // Adicionar event listeners ao simulador
-            gateSelect.addEventListener("change", updateResult);
-            inputA.addEventListener("change", updateResult);
-            inputB.addEventListener("change", updateResult);
-
-            // Animações para cards das portas
-            const gateCards = document.querySelectorAll(".gate-card");
-            gateCards.forEach(card => {
-                card.addEventListener("mouseenter", function() {
-                    this.style.transform = "translateY(-5px)";
-                });
-                
-                card.addEventListener("mouseleave", function() {
-                    this.style.transform = "translateY(0)";
-                });
-                
-                // Navegação para páginas individuais das portas
-                card.addEventListener("click", function() {
-                    const gateName = this.getAttribute("data-gate");
-                    window.location.href = `portas/${gateName}.html`;
-                });
-            });
-
-            // Animações para selects
-            const selects = document.querySelectorAll("select");
-            selects.forEach(select => {
-                select.addEventListener("focus", function() {
-                    this.style.borderColor = "var(--accent-color)";
-                    this.style.boxShadow = "0 0 0 2px rgba(100, 255, 218, 0.2)";
-                });
-                
-                select.addEventListener("blur", function() {
-                    this.style.borderColor = "var(--border-color)";
-                    this.style.boxShadow = "none";
-                });
-            });
-        });
-
-        // Fechar menu ao clicar fora
-        document.addEventListener("click", (event) => {
-            if (!event.target.closest(".nav-container") && navMenu.classList.contains("active")) {
-                navMenu.classList.remove("active");
-                hamburger.setAttribute("aria-expanded", "false");
-            }
-        });
-
-        // Detectar tecla ESC para fechar menu
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && navMenu.classList.contains("active")) {
-                navMenu.classList.remove("active");
-                hamburger.setAttribute("aria-expanded", "false");
-            }
         });
     </script>
 </body>
-
 </html>
